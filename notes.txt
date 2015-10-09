@@ -1,0 +1,6 @@
+run unit tests
+$ python3 manage.py test lists
+
+run functional tests
+$ python3 manage.py test functional_tests
+
