@@ -1,14 +1,14 @@
 ### Creating a new virutal env
 
-- first install or upgrade virtualenv
-  - $ sudo pip install --upgrade virtualenv
-- create a new virtual env for python3
-  - $ virtualenv -p python3 tdd-env
-- source it
-  - $ source tdd-env/bin/activate
-- install requirements 
-  - $ cd superlists/
-  - $ pip3 install -r requirements.txt
+* first install or upgrade virtualenv
+  - `$ sudo pip install --upgrade virtualenv`
+* create a new virtual env for python3
+  - `$ virtualenv -p python3 tdd-env`
+* source it
+  - `$ source tdd-env/bin/activate`
+* install requirements 
+  - `$ cd superlists`
+  - `$ pip3 install -r requirements.txt`
 
 
 ###  running unit tests
