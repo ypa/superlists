@@ -21,4 +21,16 @@ cd ~/work/practice/tdd/superlists/deploy_tools
 [ypa@anna deploy_tools]$ fab deploy:host=yan@superlists.wintextiles.com
 ```
 
+### restart gunicorn
+
+ssh to the server:
+```bash
+ypa@anna:$ ssh yan@superlists.wintextiles.com
+```
+On server restart the gunicorn. Since we already have the gunicorn upstart scripts in `/etc/init/`:
+```bash
+yan@ec2-server:$ sudo restart gunicorn-superlists-staging.wintextiles.com # staging
+yan@ec2-server:$ sudo restart gunicorn-superlists.wintextiles.com # prod
+```
+**Note**: pwd for yan is in Evernote on the same note as (see above) notes on adding key-pairs for a new PC.
 
