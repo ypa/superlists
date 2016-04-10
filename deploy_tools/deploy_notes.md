@@ -11,13 +11,13 @@ Make sure you commit all your changes and push it to github.
 
 ### staging
 ```bash
-cd ~/work/practice/tdd/superlists/deploy_tools
+cd ~/practice/tdd/superlists/deploy_tools
 [ypa@anna deploy_tools]$ fab deploy:host=yan@superlists-staging.wintextiles.com
 ```
 
 ### prod
 ```bash
-cd ~/work/practice/tdd/superlists/deploy_tools
+cd ~/practice/tdd/superlists/deploy_tools
 [ypa@anna deploy_tools]$ fab deploy:host=yan@superlists.wintextiles.com
 ```
 
