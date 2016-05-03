@@ -50,6 +50,11 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+AUTH_USER_MODEL = 'accounts.User'
+AUTHENTICATION_BACKENDS = (
+    'accounts.authentication.PersonaAuthenticationBackend',
+)
+
 ROOT_URLCONF = 'superlists.urls'
 
 WSGI_APPLICATION = 'superlists.wsgi.application'
@@ -87,3 +92,20 @@ STATIC_ROOT = os.path.join(BASE_DIR, '../static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'superlists', 'static'),
 )
+
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers':['console'],
+            'propagate': True,
+            'level':'DEBUG',
+        }
+    },
+}
