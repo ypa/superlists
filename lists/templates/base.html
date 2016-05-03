@@ -13,7 +13,7 @@
     <nav class="navbar navbar-default" role="navigation">
       <a class="navbar-brand" href="/">Superlists</a>
       {% if user.email %}
-        <a class="btn navbar-btn navbar-right" id="id_logout" href="#">Logout</a>
+        <a class="btn navbar-btn navbar-right" id="id_logout" href="{% url 'logout' %}">Logout</a>
         <span class="navbar-text navbar-right">Logged in as {{ user.email }}</span>
       {% else %}
         <a class="btn navbar-btn navbar-right" id="id_login" href="#">Sign in</a>
@@ -57,7 +57,7 @@
       var token = "{{ csrf_token }}";
       var urls = {
         login: "{% url 'persona_login' %}",
-        logout: "TODO",
+        logout: "{% url 'logout' %}",
       };
       Superlists.Accounts.initialize(navigator, user, token, urls);
     });
