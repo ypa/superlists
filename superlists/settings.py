@@ -98,7 +98,7 @@ STATICFILES_DIRS = (
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': True,
+    'disable_existing_loggers': False,
     'handlers': {
         'console':{
             'level':'DEBUG',
@@ -110,9 +110,23 @@ LOGGING = {
             'filename': os.path.join(BASE_DIR, '../logfile'),
         },
     },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+        },
+        'accounts': {
+            'handlers': ['console'],
+        },
+        'lists': {
+            'handlers': ['console'],
+        },
+    },
     'root': {
         'level': 'INFO',
-        'handlers': ['console', 'logfile']
     },
 }
+
+if not DEBUG:
+    for logger in LOGGING['loggers']:
+        logger['handlers'].append('logfile')
 
