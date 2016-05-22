@@ -1,3 +1,5 @@
+import time
+
 from django.conf import settings
 from .base import FunctionalTest
 from .server_tools import create_session_on_server
@@ -30,12 +32,17 @@ class MyListTest(FunctionalTest):
         self.get_item_input_box().send_keys('Immanentize eschaton\n')
         first_list_url = self.browser.current_url
 
+        time.sleep(1) # fix afterwards
         # She notices a "My lists" link, for the first time.
         self.browser.find_element_by_link_text('My lists').click()
 
-        # She sees that her ist is in there, named according to its
+        # She sees that her first is in there, named according to its
         # first list item
-        self.browser.find_element_by_link_text('Reticulate splines').click()
+        time.sleep(1) # fix afterwards
+        first_list_item = self.browser.find_element_by_link_text('Reticulate splines')
+        self.wait_for_element_present(first_list_item)
+        first_list_item.click()
+        time.sleep(1) # fix afterwards
         self.assertEqual(self.browser.current_url, first_list_url)
 
         # She decides to start another list, just to see
@@ -43,9 +50,12 @@ class MyListTest(FunctionalTest):
         self.get_item_input_box().send_keys('Click cows\n')
         second_list_url = self.browser.current_url
 
+        time.sleep(1) # fix afterwards
         # Under "my lists", her new list appears
         self.browser.find_element_by_link_text('My lists').click()
+        time.sleep(1) # fix afterwards
         self.browser.find_element_by_link_text('Click cows').click()
+        time.sleep(1) # fix afterwards
         self.assertEqual(self.browser.current_url, second_list_url)
 
         # She logs out, The "My list" option disappears

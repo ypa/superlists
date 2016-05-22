@@ -49,6 +49,12 @@ class FunctionalTest(StaticLiveServerTestCase):
             )
         )
 
+    def wait_for_element_present(self, element):
+        WebDriverWait(self.browser, timeout=5).until(
+            lambda b: element,
+            'Could not find element'
+        )
+
     def wait_to_be_logged_in(self, email):
         self.wait_for_element_with_id('id_logout')
         navbar = self.browser.find_element_by_css_selector('.navbar')
